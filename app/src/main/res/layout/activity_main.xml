@@ -10,113 +10,303 @@
         tools:openDrawer="start"
         android:orientation="horizontal">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="Team Number:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/teamNumTextBox" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_below="@+id/teamNumTextBox"
-            android:layout_alignParentStart="true"
-            android:id="@+id/teamNum" />
+            <TextView
+                android:text="Team Number:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/teamNumTextBox" />
 
-        <TextView
-            android:text="Match Number:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/teamNum"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp"
-            android:id="@+id/matchNumTextBox" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/teamNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/teamNum"
+                android:hint="0" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_below="@+id/matchNumTextBox"
-            android:layout_alignParentStart="true"
-            android:id="@+id/matchNum" />
+            <TextView
+                android:text="Match Number:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/teamNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="12dp"
+                android:id="@+id/matchNumTextBox" />
 
-        <CheckBox
-            android:text="Auto High Goal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/autoHighGoalCheck"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/matchNum" />
+            <CheckBox
+                android:text="Auto High Goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/autoHighGoalCheck"
+                android:layout_marginTop="16dp"
+                android:layout_below="@+id/matchNum" />
 
-        <TextView
-            android:text="High Goals:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/highGoalNumTextBox"
-            android:layout_below="@+id/autoCrossCheck"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="20dp" />
+            <TextView
+                android:text="High Goals:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/highGoalNumTextBox"
+                android:layout_below="@+id/autoCrossCheck"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_below="@+id/highGoalNumTextBox"
-            android:layout_alignParentStart="true"
-            android:id="@+id/highGoalNum"
-            android:layout_alignEnd="@+id/autoHighGoalCheck" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/highGoalNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/highGoalNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
 
-        <Button
-            android:text="+"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/highGoalNum"
-            android:layout_toEndOf="@+id/highGoalNum"
-            android:id="@+id/highGoalNumPlus"
-            android:layout_alignBottom="@+id/highGoalNum" />
+            <CheckBox
+                android:text="Auto Cross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/autoCrossCheck"
+                android:layout_below="@+id/autoLowGoalCheck"
+                android:layout_alignParentStart="true" />
 
-        <CheckBox
-            android:text="Auto Cross"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/autoCrossCheck"
-            android:layout_below="@+id/autoLowGoalCheck"
-            android:layout_alignParentStart="true" />
+            <CheckBox
+                android:text="Auto Low Goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/autoLowGoalCheck"
+                android:layout_below="@+id/autoHighGoalCheck"
+                android:layout_alignParentStart="true" />
 
-        <CheckBox
-            android:text="Auto Low Goal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/autoLowGoalCheck"
-            android:layout_below="@+id/autoHighGoalCheck"
-            android:layout_alignParentStart="true" />
+            <TextView
+                android:text="High Goals Missed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/highGoalNumMinus"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="12dp"
+                android:id="@+id/highGoalMissNumTextBox" />
 
-        <TextView
-            android:text="High Goals Missed:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/highGoalNumMinus"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp"
-            android:id="@+id/highGoalMissNumTextBox" />
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/highGoalNumMinus"
+                android:layout_toEndOf="@+id/highGoalNumPlus"
+                android:layout_alignBottom="@+id/highGoalNumPlus"
+                android:layout_alignTop="@+id/highGoalNumPlus" />
 
-        <Button
-            android:text="-"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/highGoalNumMinus"
-            android:layout_toEndOf="@+id/highGoalNumPlus"
-            android:layout_alignBottom="@+id/highGoalNumPlus"
-            android:layout_alignTop="@+id/highGoalNumPlus" />
-    </RelativeLayout>
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/highGoalMissNum"
+                android:layout_toEndOf="@+id/highGoalMissNum"
+                android:id="@+id/highGoalMissNumPlus"
+                android:layout_alignBottom="@+id/highGoalMissNum" />
+
+            <TextView
+                android:text="Low Goals:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:id="@+id/lowGoalNumTextBox"
+                android:layout_below="@+id/highGoalMissNum"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/lowGoalNum"
+                android:layout_toEndOf="@+id/lowGoalNum"
+                android:id="@+id/lowGoalNumPlus"
+                android:layout_alignTop="@+id/lowGoalNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/lowGoalNumPlus"
+                android:layout_toEndOf="@+id/lowGoalNumPlus"
+                android:id="@+id/lowGoalNumMinus"
+                android:layout_alignTop="@+id/lowGoalNumPlus" />
+
+            <TextView
+                android:text="Low Goals Missed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lowGoalNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/lowGoalMissNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/lowGoalMissNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/lowGoalMissNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/lowGoalMissNum"
+                android:id="@+id/lowGoalMissNumPlus"
+                android:layout_alignTop="@+id/lowGoalMissNum"
+                android:layout_alignBottom="@+id/lowGoalMissNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/highGoalMissNumMinus"
+                android:layout_toEndOf="@+id/highGoalMissNumPlus"
+                android:layout_alignBottom="@+id/highGoalMissNumPlus"
+                android:layout_alignTop="@+id/highGoalMissNumPlus"
+                />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lowGoalMissNumMinus"
+                android:layout_toEndOf="@+id/lowGoalMissNumPlus"
+                android:layout_alignTop="@+id/lowGoalMissNumPlus"
+                android:layout_alignBottom="@+id/lowGoalMissNumPlus" />
+
+            <TextView
+                android:text="Cheval de Frisse Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lowGoalMissNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/chevalDeFrisseCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/chevalDeFrisseCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/chevalDeFrisseCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/chevalDeFrisseCrossNum"
+                android:id="@+id/chevalDeFrisseCrossNumPlus"
+                android:layout_below="@+id/chevalDeFrisseCrossNumTextBox"
+                android:layout_alignBottom="@+id/chevalDeFrisseCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/lowGoalMissNumMinus"
+                android:id="@+id/chevalDeFrisseCrossNumMinus"
+                android:layout_alignTop="@+id/chevalDeFrisseCrossNumPlus"
+                android:layout_alignBottom="@+id/chevalDeFrisseCrossNumPlus" />
+
+            <TextView
+                android:text="Portcullis Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chevalDeFrisseCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/portcullisCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/portcullisCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/portcullisCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/portcullisCrossNum"
+                android:id="@+id/portcullisCrossNumPlus"
+                android:layout_alignBottom="@+id/portcullisCrossNum"
+                android:layout_alignTop="@+id/portcullisCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/chevalDeFrisseCrossNumMinus"
+                android:id="@+id/portcullisCrossNumMinus"
+                android:layout_alignTop="@+id/portcullisCrossNumPlus"
+                android:layout_alignBottom="@+id/portcullisCrossNumPlus" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/matchNum"
+                android:layout_below="@+id/matchNumTextBox"
+                android:layout_alignParentStart="true"
+                android:hint="0" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/lowGoalNum"
+                android:layout_below="@+id/lowGoalNumTextBox"
+                android:layout_alignEnd="@+id/autoLowGoalCheck"
+                android:hint="0" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/highGoalMissNum"
+                android:hint="0"
+                android:layout_below="@+id/highGoalMissNumTextBox"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/highGoalNumPlus" />
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/highGoalNumPlus"
+                android:layout_alignTop="@+id/highGoalNum"
+                android:layout_toEndOf="@+id/highGoalNum"
+                android:layout_alignBottom="@+id/highGoalNum" />
+
+        </RelativeLayout>
+    </ScrollView>
 </LinearLayout>
