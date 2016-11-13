@@ -99,15 +99,6 @@
                 android:id="@+id/highGoalMissNumTextBox" />
 
             <Button
-                android:text="-"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/highGoalNumMinus"
-                android:layout_toEndOf="@+id/highGoalNumPlus"
-                android:layout_alignBottom="@+id/highGoalNumPlus"
-                android:layout_alignTop="@+id/highGoalNumPlus" />
-
-            <Button
                 android:text="+"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -258,15 +249,6 @@
                 android:layout_alignBottom="@+id/portcullisCrossNum"
                 android:layout_alignTop="@+id/portcullisCrossNum" />
 
-            <Button
-                android:text="-"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/chevalDeFrisseCrossNumMinus"
-                android:id="@+id/portcullisCrossNumMinus"
-                android:layout_alignTop="@+id/portcullisCrossNumPlus"
-                android:layout_alignBottom="@+id/portcullisCrossNumPlus" />
-
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -284,8 +266,8 @@
                 android:ems="10"
                 android:id="@+id/lowGoalNum"
                 android:layout_below="@+id/lowGoalNumTextBox"
-                android:layout_alignEnd="@+id/autoLowGoalCheck"
-                android:hint="0" />
+                android:hint="0"
+                android:layout_toStartOf="@+id/highGoalMissNumPlus" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -298,6 +280,53 @@
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/highGoalNumPlus" />
 
+            <TextView
+                android:text="Moat Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/portcullisCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/moatCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/moatCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/moatCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/moatCrossNum"
+                android:layout_toEndOf="@+id/moatCrossNum"
+                android:id="@+id/moatCrossNumPlus"
+                android:layout_alignBottom="@+id/moatCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/moatCrossNumMinus"
+                android:layout_toEndOf="@+id/moatCrossNumPlus"
+                android:layout_alignTop="@+id/moatCrossNumPlus"
+                android:layout_alignBottom="@+id/moatCrossNumPlus" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/portcullisCrossNumMinus"
+                android:layout_alignBottom="@+id/portcullisCrossNumPlus"
+                android:layout_toEndOf="@+id/portcullisCrossNumPlus"
+                android:layout_alignTop="@+id/portcullisCrossNumPlus" />
+
             <Button
                 android:text="+"
                 android:layout_width="wrap_content"
@@ -306,6 +335,262 @@
                 android:layout_alignTop="@+id/highGoalNum"
                 android:layout_toEndOf="@+id/highGoalNum"
                 android:layout_alignBottom="@+id/highGoalNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/highGoalNumMinus"
+                android:layout_toEndOf="@+id/highGoalNumPlus"
+                android:layout_alignBottom="@+id/highGoalNumPlus"
+                android:layout_alignTop="@+id/highGoalNumPlus" />
+
+            <TextView
+                android:text="Ramparts Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/moatCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/rampartsCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/rampartsCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/rampartsCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+
+            <TextView
+                android:text="Drawbridge Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rampartsCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/drawbridgeCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/drawbridgeCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/drawbridgeCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+
+            <TextView
+                android:text="Sallyport Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/drawbridgeCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/sallyportCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/sallyportCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/sallyportCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+
+            <TextView
+                android:text="Rock Wall Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sallyportCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/rockWallCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/rockWallCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/rockWallCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+
+            <TextView
+                android:text="Rough Terrain Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rockWallCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/roughTerrainCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/roughTerrainCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/roughTerrainCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+
+            <TextView
+                android:text="Low Bar Crossed:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/roughTerrainCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"
+                android:id="@+id/lowBarCrossNumTextBox" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_below="@+id/lowBarCrossNumTextBox"
+                android:layout_alignParentStart="true"
+                android:id="@+id/lowBarCrossNum"
+                android:layout_alignEnd="@+id/autoHighGoalCheck"
+                android:hint="0" />
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/rampartsCrossNum"
+                android:layout_toEndOf="@+id/rampartsCrossNum"
+                android:id="@+id/rampartsCrossNumPlus"
+                android:layout_alignBottom="@+id/rampartsCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rampartsCrossNumMinus"
+                android:layout_toEndOf="@+id/rampartsCrossNumPlus"
+                android:layout_alignTop="@+id/rampartsCrossNumPlus"
+                android:layout_alignBottom="@+id/rampartsCrossNumPlus" />
+
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/drawbridgeCrossNum"
+                android:layout_toEndOf="@+id/drawbridgeCrossNum"
+                android:id="@+id/drawbridgeCrossNumPlus"
+                android:layout_alignBottom="@+id/drawbridgeCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drawbridgeCrossNumMinus"
+                android:layout_toEndOf="@+id/drawbridgeCrossNumPlus"
+                android:layout_alignTop="@+id/drawbridgeCrossNumPlus"
+                android:layout_alignBottom="@+id/drawbridgeCrossNumPlus" />
+
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/sallyportCrossNum"
+                android:layout_toEndOf="@+id/sallyportCrossNum"
+                android:id="@+id/sallyportCrossNumPlus"
+                android:layout_alignBottom="@+id/sallyportCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sallyportCrossNumMinus"
+                android:layout_toEndOf="@+id/sallyportCrossNumPlus"
+                android:layout_alignTop="@+id/sallyportCrossNumPlus"
+                android:layout_alignBottom="@+id/sallyportCrossNumPlus" />
+
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/rockWallCrossNum"
+                android:layout_toEndOf="@+id/rockWallCrossNum"
+                android:id="@+id/rockWallCrossNumPlus"
+                android:layout_alignBottom="@+id/rockWallCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rockWallCrossNumMinus"
+                android:layout_toEndOf="@+id/rockWallCrossNumPlus"
+                android:layout_alignTop="@+id/rockWallCrossNumPlus"
+                android:layout_alignBottom="@+id/rockWallCrossNumPlus" />
+
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/roughTerrainCrossNum"
+                android:layout_toEndOf="@+id/roughTerrainCrossNum"
+                android:id="@+id/roughTerrainCrossNumPlus"
+                android:layout_alignBottom="@+id/roughTerrainCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/roughTerrainCrossNumMinus"
+                android:layout_toEndOf="@+id/roughTerrainCrossNumPlus"
+                android:layout_alignTop="@+id/roughTerrainCrossNumPlus"
+                android:layout_alignBottom="@+id/roughTerrainCrossNumPlus" />
+
+
+            <Button
+                android:text="+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/lowBarCrossNum"
+                android:layout_toEndOf="@+id/lowBarCrossNum"
+                android:id="@+id/lowBarCrossNumPlus"
+                android:layout_alignBottom="@+id/lowBarCrossNum" />
+
+            <Button
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lowBarCrossNumMinus"
+                android:layout_toEndOf="@+id/lowBarCrossNumPlus"
+                android:layout_alignTop="@+id/lowBarCrossNumPlus"
+                android:layout_alignBottom="@+id/lowBarCrossNumPlus" />
+
+            <Button
+                android:text="SUBMIT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/submitButton"
+                android:layout_below="@+id/lowBarCrossNum"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp" />
 
         </RelativeLayout>
     </ScrollView>
