@@ -165,5 +165,9 @@ internal class MainActivity : Activity() {
             highGoalNum.setText((highGoalNum.text.toString().toInt() + 1).toString())
             highGoalNum.requestFocusFromTouch()
         }
+
+        submitButton.setOnClickListener {
+            submitButton.requestFocusFromTouch()
+        }
     }
 }
