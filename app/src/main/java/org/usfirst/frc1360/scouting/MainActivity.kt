@@ -181,6 +181,8 @@ internal class MainActivity : Activity() {
 
         submitButton.setOnClickListener {
             submitButton.requestFocusFromTouch()
+            var connection = Connection()
+            connection.connect()
         }
     }
 }
