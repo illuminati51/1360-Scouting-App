@@ -29,6 +29,7 @@ public class Connection : Activity() {
     private var inStreams: List<InputStream> = ArrayList()
     private var outStreams: List<OutputStream> = ArrayList()
 
+    private final var USER_UUID = UUID(3, 3) // Mertin fix this, I probably did something wrong
     private final var BUFFER_SIZE: Int = 1024
     private final var TOAST: Int = 5
     // I like toast
@@ -45,7 +46,7 @@ public class Connection : Activity() {
         device = bluetoothDevice
 
         try {
-            temp = device!!.createRfcommSocketToServiceRecord(UUID.randomUUID())
+            temp = device!!.createRfcommSocketToServiceRecord(USER_UUID)
         } catch (e: IOException) { }
         socket = temp
 
@@ -63,7 +64,7 @@ public class Connection : Activity() {
 
     public fun createServer() {
         hostingServer = true
-        serverSocket = bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(android.os.Build.MODEL, UUID.randomUUID())
+        serverSocket = bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(android.os.Build.MODEL, USER_UUID)
         var socket: BluetoothSocket
         while (true) {
             try {
