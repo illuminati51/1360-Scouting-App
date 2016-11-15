@@ -5,16 +5,23 @@ import android.app.Notification
 import android.bluetooth.*
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.wifi.WifiInfo
+import android.net.wifi.WifiManager
 import android.os.ParcelUuid
 import android.renderscript.ScriptGroup
 import android.support.v4.app.ActivityCompat.*
 import android.support.v4.content.ContextCompat
 import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
+import android.view.View
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.*
+import java.net.NetworkInterface.getNetworkInterfaces
+
+
 
 public class Connection {
     private var bluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
@@ -36,9 +43,9 @@ public class Connection {
         bluetoothAdapter.enable()
     }
 
-    public fun connect(bluetoothDevice: BluetoothDevice) {
+    public fun connect(context: Context) {
         var temp: BluetoothSocket? = null
-        device = bluetoothDevice
+        device = bluetoothAdapter.getRemoteDevice(android.provider.Settings.Secure.getString(context.contentResolver, "bluetooth_address"))
 
         try {
             temp = device!!.createRfcommSocketToServiceRecord(USER_UUID)
@@ -114,5 +121,9 @@ public class Connection {
         for (i in 0..outStreams.size) {
             outStreams[i].write(foo.toByteArray())
         }
+    }
+
+    public fun getBondedDevices(): Set<BluetoothDevice> {
+        return bluetoothAdapter.bondedDevices
     }
 }

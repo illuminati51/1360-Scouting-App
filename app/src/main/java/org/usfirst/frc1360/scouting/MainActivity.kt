@@ -183,6 +183,10 @@ internal class MainActivity : Activity() {
             submitButton.requestFocusFromTouch()
         }
 
-
+        var connection: Connection = Connection()
+        connection.connect(applicationContext)
+        if (!(connection.getBondedDevices().size > 0)) {
+            connection.createServer()
+        }
     }
 }
