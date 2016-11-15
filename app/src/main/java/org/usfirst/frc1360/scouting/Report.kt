@@ -1,9 +1,5 @@
 package org.usfirst.frc1360.scouting
 
-/**
- * Created by Jason on 2016-11-13.
- */
-
 public class Report(teamNum: Int, matchNum: Int, autoHighGoal: Boolean, autoLowGoal: Boolean, autoCross: Boolean, lowGoals: Int, lowGoalsMissed: Int, highGoals: Int, highGoalsMissed: Int, chevalDeFrisseCrossed: Int, portcullisCrossed: Int, moatCrossed: Int, rampartsCrossed: Int, drawbridgeCrossed: Int, sallyportCrossed: Int, rockWallCrossed: Int, roughTerrainCrossed: Int, lowBarCrossed: Int) {
     var teamNum: Int = teamNum; get private set
     var matchNum: Int = matchNum; get private set

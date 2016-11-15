@@ -16,9 +16,6 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.util.*
 
-/**
- * Created by Jason on 2016-11-13.
- */
 public class Connection {
     private var bluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
     private var serverSocket: BluetoothServerSocket? = null
