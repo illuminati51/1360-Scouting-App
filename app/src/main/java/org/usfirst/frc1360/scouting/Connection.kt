@@ -53,7 +53,6 @@ public class Connection {
             try {
                 socket!!.close()
             } catch (ee: IOException) {}
-            return
         }
     }
 

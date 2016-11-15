@@ -182,5 +182,7 @@ internal class MainActivity : Activity() {
         submitButton.setOnClickListener {
             submitButton.requestFocusFromTouch()
         }
+
+
     }
 }
