@@ -5,11 +5,15 @@ import android.app.Notification
 import android.bluetooth.*
 import android.content.Context
 import android.content.Intent
+import android.os.ParcelUuid
+import android.renderscript.ScriptGroup
 import android.support.v4.app.ActivityCompat.*
 import android.support.v4.content.ContextCompat
 import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
 import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
 import java.util.*
 
 /**
@@ -22,6 +26,12 @@ public class Connection : Activity() {
     private var device: BluetoothDevice? = null
     private var hostingServer: Boolean = false
     private var connectedToServer: Boolean = false
+    private var inStreams: List<InputStream> = ArrayList()
+    private var outStreams: List<OutputStream> = ArrayList()
+
+    private final var BUFFER_SIZE: Int = 1024
+    private final var TOAST: Int = 5
+    // I like toast
 
     init {
         if (bluetoothAdapter == null)
@@ -49,8 +59,6 @@ public class Connection : Activity() {
             } catch (ee: IOException) {}
             return
         }
-
-        //data transfer
     }
 
     public fun createServer() {
@@ -74,5 +82,42 @@ public class Connection : Activity() {
 
     public fun cancelConnection() {
         if (hostingServer) serverSocket!!.close() else if (connectedToServer) /**/ else throw Exception("Neither connected nor hosting")
+    }
+
+    public fun run() {
+        var bondedDevices: Set<BluetoothDevice> = bluetoothAdapter.bondedDevices
+
+        if (bondedDevices.size > 0) {
+            var devices: Array<BluetoothDevice> = bondedDevices.toTypedArray()
+
+            for (i in 0..devices.size) {
+                var device: BluetoothDevice = devices[i]
+                var uuids: Array<ParcelUuid> = device.uuids
+                var socket: BluetoothSocket = device.createRfcommSocketToServiceRecord(uuids[0].uuid)
+                socket.connect()
+                inStreams.plus(socket.inputStream)
+                outStreams.plus(socket.outputStream)
+            }
+
+            var buffer: ByteArray = ByteArray(BUFFER_SIZE)
+            var bytes: Int = 0
+            var b = BUFFER_SIZE
+
+            for (i in 0..inStreams.size) {
+                while (true) {
+                    try {
+                        bytes = inStreams[i].read(buffer, bytes, BUFFER_SIZE - bytes)
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
+    }
+
+    public fun write(foo: String) {
+        for (i in 0..outStreams.size) {
+            outStreams[i].write(foo.toByteArray())
+        }
     }
 }
