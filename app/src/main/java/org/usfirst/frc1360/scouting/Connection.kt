@@ -6,6 +6,7 @@ import android.bluetooth.*
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.ParcelUuid
@@ -44,6 +45,7 @@ public class Connection {
     }
 
     public fun connect(context: Context) {
+        connectedToServer = true
         var temp: BluetoothSocket? = null
         device = bluetoothAdapter.getRemoteDevice(android.provider.Settings.Secure.getString(context.contentResolver, "bluetooth_address"))
 
@@ -67,23 +69,25 @@ public class Connection {
         hostingServer = true
         serverSocket = bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(android.os.Build.MODEL, USER_UUID)
         var socket: BluetoothSocket
-        while (true) {
-            try {
-                socket = serverSocket!!.accept()
-            } catch (e: IOException) {
-                break
-            }
+        Thread( Runnable {
+            while (true) {
+                try {
+                    socket = serverSocket!!.accept()
+                } catch (e: IOException) {
+                    break
+                }
 
-            if (socket != null) {
-                //data transfer
-                serverSocket!!.close()
-                break
+                if (socket != null) {
+                    //data transfer
+                    serverSocket!!.close()
+                    break
+                }
             }
-        }
+        }).start()
     }
 
     public fun cancelConnection() {
-        if (hostingServer) serverSocket!!.close() else if (connectedToServer) /**/ else throw Exception("Neither connected nor hosting")
+        if (hostingServer) serverSocket!!.close() else if (connectedToServer) socket!!.close() else throw Exception("Neither connected nor hosting")
     }
 
     public fun run() {
@@ -123,7 +127,16 @@ public class Connection {
         }
     }
 
-    public fun getBondedDevices(): Set<BluetoothDevice> {
-        return bluetoothAdapter.bondedDevices
+    public fun read(): Array<String> {
+        var strings: List<String> = ArrayList()
+        for (i in 0..inStreams.size) {
+            strings.plus(inStreams[i].read().toString())
+        }
+
+        return strings.toTypedArray()
+    }
+
+    public fun getBondedDevicesNum(): Int {
+        return bluetoothAdapter.bondedDevices.size
     }
 }

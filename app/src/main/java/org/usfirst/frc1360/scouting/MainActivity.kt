@@ -35,6 +35,13 @@ internal class MainActivity : Activity() {
         super.onCreate(savedInstancesState)
         setContentView(R.layout.activity_main)
 
+        var connection: Connection = Connection()
+        connection.connect(applicationContext)
+        if (!(connection.getBondedDevicesNum() > 0)) {
+            connection.cancelConnection()
+            connection.createServer()
+        }
+
         highGoalNum.setText("0")
         lowGoalMissNum.setText("0")
         chevalDeFrisseCrossNum.setText("0")
@@ -181,12 +188,12 @@ internal class MainActivity : Activity() {
 
         submitButton.setOnClickListener {
             submitButton.requestFocusFromTouch()
-        }
-
-        var connection: Connection = Connection()
-        connection.connect(applicationContext)
-        if (!(connection.getBondedDevices().size > 0)) {
-            connection.createServer()
+            var report: Report = Report(teamNum.text.toString().toInt(), matchNum.text.toString().toInt(), autoHighGoalCheck.isChecked, autoLowGoalCheck.isChecked, autoCrossCheck.isChecked, lowGoalNum.text.toString().toInt(), lowGoalMissNum.text.toString().toInt(), highGoalNum.text.toString().toInt(), highGoalMissNum.text.toString().toInt(), chevalDeFrisseCrossNum.text.toString().toInt(), portcullisCrossNum.text.toString().toInt(), moatCrossNum.text.toString().toInt(), rampartsCrossNum.text.toString().toInt(), drawbridgeCrossNum.text.toString().toInt(), sallyportCrossNum.text.toString().toInt(), rockWallCrossNum.text.toString().toInt(), roughTerrainCrossNum.text.toString().toInt(), lowBarCrossNum.text.toString().toInt())
+            connection.write("TEST")
+            try {
+                var foo = connection.read()
+                highGoalNum.setText(foo[0])
+            } catch (e: Exception) {}
         }
     }
 }
