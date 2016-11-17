@@ -1,0 +1,114 @@
+<html >
+	<body>
+		<form action="scout.php" method="POST">
+            Team Number
+            <br>
+            <input type='number' name='team number' value="0" style="height:50;width:150;font-size:30px">
+            <br>
+            Match Number
+            <br>
+            <input type='number' name='match number' value="0" style="height:50;width:150;font-size:30px">
+            <br>
+            Auto High Goal
+            <br>
+            <input type='checkbox' name='auto high' style="height:50;width:50">
+            <br>
+            Auto Low Goal
+            <br>
+            <input type='checkbox' name='auto low' style="height:50;width:50">
+            <br>
+            Auto Cross
+            <br>
+            <input type='checkbox' name='auto cross' style="height:50;width:50">
+            <br>
+            <br>
+            High Goals
+            <br>
+			<input type='number' name='high goals' id='qty' min="0" value="0" style="height:50;width:50;font-size:30px">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty").value++;' value='+' style="height:50;width:150;font-size:30px">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            High Goals Missed
+            <br>
+            <input type='number' name='high goals missed' id='qty1' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty1").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty1").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Low Goals
+            <br>
+            <input type='number' name='low goals' id='qty2' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty2").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty2").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Low Goals Missed
+            <br>
+            <input type='number' name='low goals missed' id='qty3' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty3").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty3").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Cheval De Frise Crossed
+            <br>
+            <input type='number' name='cdf' id='qty4' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty4").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty4").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Moat Crossed
+            <br>
+            <input type='number' name='moat' id='qty5' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty5").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty5").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Ramparts Crossed
+            <br>
+            <input type='number' name='ramparts' id='qty6' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty6").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty6").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Sally Port Crossed
+            <br>
+            <input type='number' name='sally port' id='qty7' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty7").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty7").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Draw Bridge Crossed
+            <br>
+            <input type='number' name='draw bridge' id='qty8' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty8").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty8").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Rock Wall Crossed
+            <br>
+            <input type='number' name='rock wall' id='qty9' min="0" value="0" style="height:50;width:50;font-size:30" >
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty9").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty9").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Rough Terrain Crossed
+            <br>
+            <input type='number' name='rough terrain' id='qty10' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty10").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty10").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Low Bar Crossed
+            <br>
+            <input type='number' name='low bar' id='qty11' min="0" value="0" style="height:50;width:50;font-size:30">
+			<input type='button' name='add' onclick='javascript: document.getElementById("qty11").value++;' value='+' style="height:50;width:150;font-size:30">
+			<input type='button' name='subtract' onclick='javascript: document.getElementById("qty11").value--;' value='-' style="height:50;width:150;font-size:30">
+            <br>
+            Climb
+            <br>
+            <input type='checkbox' name='climb' style="height:50;width:50">
+            <br>
+            Climb Attempted but failed
+            <br>
+            <input type='checkbox' name='climbat' style="height:50;width:50;font-size:30px">
+            <br>
+            Comments (Max 255 Chararcters)
+            <br>
+            <input type='text' name='comment' style="height:50;width:200;font-size:30px">
+            <br>
+            <br>
+            <br>
+            <input type='submit' value="SUBMIT" style="height:50;width:100;font-size:20px">
+		</form>
+	</body>
+</html>
