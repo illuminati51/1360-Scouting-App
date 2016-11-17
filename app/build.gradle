@@ -33,6 +33,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.+'
     compile 'com.android.support:design:25.+'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'org.nanohttpd:nanohttpd:2.3.1'
 }
 repositories {
     mavenCentral()
