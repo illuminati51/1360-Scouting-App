@@ -31,8 +31,8 @@ public class Connection {
     private var device: BluetoothDevice? = null
     private var hostingServer: Boolean = false
     private var connectedToServer: Boolean = false
-    private var inStreams: List<InputStream> = ArrayList()
-    private var outStreams: List<OutputStream> = ArrayList()
+    private var inStreams: MutableList<InputStream> = arrayListOf()
+    private var outStreams: MutableList<OutputStream> = arrayListOf()
 
     private final var USER_UUID = UUID.fromString("8f5c5934-aaf3-11e6-80f5-76304dec7eb7")
     private final var BUFFER_SIZE: Int = 1024
@@ -101,11 +101,11 @@ public class Connection {
                 var uuids: Array<ParcelUuid> = device.uuids
                 var socket: BluetoothSocket = device.createRfcommSocketToServiceRecord(uuids[0].uuid)
                 socket.connect()
-                inStreams.plus(socket.inputStream)
-                outStreams.plus(socket.outputStream)
+                inStreams.add(socket.inputStream)
+                outStreams.add(socket.outputStream)
             }
 
-            var buffer: ByteArray = ByteArray(BUFFER_SIZE)
+            /*var buffer: ByteArray = ByteArray(BUFFER_SIZE)
             var bytes: Int = 0
             var b = BUFFER_SIZE
 
@@ -117,7 +117,7 @@ public class Connection {
                         e.printStackTrace()
                     }
                 }
-            }
+            }*/
         }
     }
 
@@ -128,9 +128,9 @@ public class Connection {
     }
 
     public fun read(): Array<String> {
-        var strings: List<String> = ArrayList()
+        var strings: MutableList<String> = arrayListOf()
         for (i in 0..inStreams.size) {
-            strings.plus(inStreams[i].read().toString())
+            strings.add(inStreams[i].read().toString())
         }
 
         return strings.toTypedArray()
